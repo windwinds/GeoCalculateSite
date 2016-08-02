@@ -1,0 +1,107 @@
+               <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            MapReduce算子配置
+                            <small>MapReduce计算任务</small>
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-dashboard"></i>  <a href="home">回到首页</a>
+                            </li>
+                            <li class="active">
+                                <i class="fa fa-file"></i> MapReduce算子配置
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="col-lg-12"> 
+                   <div class="page-header">
+                        <h2>配置MapReduce算子</h2>
+                   </div>
+                   <div>
+                        <label for="mapreduceName">请设置算子名称</label>
+                        <input class="form-control" id="mapreduceName">
+                    </div>
+                    <form enctype="multipart/form-data" method='post' role="form" id="formUploadJarFile">
+                    <div>
+                        <label for="MPjarName">请上传MapReduce计算任务的jar包</label>
+                        <input type="file" id="MPjarName" name="file" multiple='mutiple'>
+                    </div>
+                  <p>
+                     <br>                    
+                     <label for="params">请分别输入MapReduce主类名称、计算文件名称、额外参数（没有则不填,多个参数用,隔开）</label>
+                     <br>
+                     <div class="row">
+                        <div class="col-lg-3">
+                            <input class="form-control" type="text" id="mainClass" placeholder="Type something…">
+                        </div>
+                        <div class="col-lg-3">
+                            <input class="form-control" type="text" id="name" value=" ">
+                        </div>
+                        <div class="col-lg-3">
+                            <input class="form-control" type="text" id="extralParams" value=" ">
+                        </div>                   
+                     </div>
+                    
+                    <div id="uploadMRjar">
+                        <br>
+                           <button type="button" class="btn btn-sm btn-lg btn-primary" onClick="uploadMRjar()">上传jar包</button>
+                           <button type="button" class="btn btn-sm btn-success" onClick="startConfig()">确认配置</button>
+                        <br> 
+                    </div>
+                    <div id="configMRjarDiv"></div>
+                  </p>
+                </form>
+               </div>
+               
+               <script>
+                    function uploadMRjar(){
+                      $('#configMRjarDiv').empty();
+                      if($("#MPjarName").val()==''){
+                         $('#configMRjarDiv').append('<div class="alert alert-warning"> <strong>请选择上传文件</strong></div>');
+                      }else{
+                        $('#configMRjarDiv').append('<div class="alert alert-info"> <strong>正在上传，请稍后......</strong></div>');
+                        var formData = new FormData($("#formUploadJarFile")[0]);
+                        $.ajax({
+                            type: 'post',
+                            url: "/uploadMRjar",
+                            data: formData,
+                            async: false,
+                            catch: false,
+                            contentType: false,
+                            processData: false,
+                            success: function(data){
+                                if(data.upMRjarSuccess){
+                                    $('#configMRjarDiv').append('<div class="alert alert-success"> <strong>文件上传成功!</strong></div>');
+                                }else{
+                                    $('#configMRjarDiv').append('<div class="alert alert-warning"> <strong>文件上传失败!</strong></div>');
+                                }
+                            }
+                        });
+                      }
+                    }
+
+                    function startConfig(){
+                       // console.log($("#fieldFile").val()+" "+$("#splitName").val());
+                     $('#configMRjarDiv').empty();
+                     if($("#MPjarName").val()=='' || $("#mapreduceName").val()==''){
+                           $('#configMRjarDiv').append('<div class="alert alert-warning"> <strong>请上传jar包、设置算子名称</strong></div>');
+                     }else{
+                        
+                        var params = trimstr($("#mainClass").val())+";"+trimstr($("#name").val())+";"+trimstr($("#extralParams").val());
+                        $.ajax({
+                             type: 'post',
+                             url: "/configMPJar",
+                             data: {mapreduceName: trimstr($("#mapreduceName").val()), MPjarName: $("#MPjarName").val(), otherInfo: params},
+                             success: function(data){
+                                  if(data.configSuccess){
+                                      $('#configMRjarDiv').append('<div class="alert alert-success"> <strong>配置成功!</strong></div>');
+                                  }else{
+
+                                  }
+                             }
+                        });
+                      }
+                    } 
+               </script>

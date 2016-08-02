@@ -1,0 +1,159 @@
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            下载计算后的文件
+                            <small>选择下载计算后的地理栅格文件</small>
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-dashboard"></i>  <a href="home">回到首页</a>
+                            </li>
+                            <li class="active">
+                                <i class="fa fa-file"></i> 下载文件
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+
+         <div class="col-lg-12">
+            <div class="page-header">
+                <h1>下载HDFS上的文件</h1>
+            </div>
+
+            <div class="form-group">
+                   <label>请选择需要下载的HDFS上的文件</label>
+                   <select class="form-control" name="multiselect[]" id="selectFile">
+
+                   </select>
+                   <button type="button" class="btn btn-sm btn-lg btn-primary" onClick="startDownload()">确认</button>
+                   <button type="button" class="btn btn-sm btn-lg btn-danger" onClick="deleteHDFSfile()">删除</button>                   
+            </div> 
+        
+            <div>
+
+            <div id="startDownload">
+              
+            </div>
+
+         </div>
+
+        <div class="col-lg-12">
+               <div class="page-header">
+                     <h1>计算结果重写为栅格文件并下载</h1>
+               </div>
+               <div class="form-group">
+                   <label>请选择HDFS上的文件</label>
+                   <select class="form-control" name="multiselect[]" id="selectFile1">
+
+                   </select>
+                   <button type="button" class="btn btn-sm btn-lg btn-primary" onClick="writeRas()">写回栅格文件</button>    
+               </div>
+               <div id="rasDownload">
+               </div>
+        </div>
+
+         <script type="text/javascript">
+              $(document).ready(function() {
+                  $('#selectFile').multiselect({
+                      ncludeSelectAllOption: true,
+                      enableFiltering: true,
+                      maxHeight: '300',
+                      buttonWidth: '235'
+                   });
+                  $('#selectFile1').multiselect({
+                      ncludeSelectAllOption: true,
+                      enableFiltering: true,
+                      maxHeight: '300',
+                      buttonWidth: '235'
+                   });
+                  initMultiSelect();
+
+              });
+ 
+              function initMultiSelect(){
+                 $.ajax({
+                            type: 'post',
+                            url: "/HDFSinit",
+                            success: function(data){
+                                if(data.success){
+                                    $("#selectFile").empty();
+                                    $("#selectFile1").empty();
+                                    //$("#selectFile").append("<option value=''>请选择</option>");
+                                    // $("<option value=''>请选择</option>").appendTo("#selectFile");
+                                    var options = new Array();
+                                    for(var i=0; i<data.filesName.length; i++){
+                                            $("#selectFile").append("<option value="+data.filesName[i]+">"+data.filesName[i]+"</option>");
+                                            //$("#selectFile1").append("<option value="+data.filesName[i]+">"+data.filesName[i]+"</option>");
+                                            var option = {label:data.filesName[i], value:data.filesName[i]};
+                                            options.push(option);
+                                   }
+                                   //var options = [{label:'111',title:'11',value:'1'},{label:'222', title:'22', value:'2'}];
+                                   $('#selectFile').multiselect('dataprovider',options);
+                                   $('#selectFile1').multiselect('dataprovider',options);
+                                }else{
+                                    $("#selectFile").append("<option value=''>数据加载失败</option>");
+                                    $("#selectFile1").append("<option value=''>数据加载失败</option>");
+                                }
+                            }
+                        });
+             }
+
+             function startDownload(){
+                 $.ajax({
+                           type: 'post',
+                           url: "/startDownload",
+                           data: {fileName: $('#selectFile').val()},
+                           success: function(data){
+                                if(data.isSuccess == true){
+                                  $('#startDownload').append('<div><a href="/startDownload?path=/public/files/downloadfiles/&output='+$('#selectFile').val()+'"'+'>开始下载</a></div>');
+                                }else{
+                                  $('#startDownload').append('<div class="alert alert-warning"> <strong>从HDFS上提取文件失败!</strong></div>');
+                                }
+                           }
+
+                 });
+             }
+
+            function writeRas(){
+                 $.ajax({
+                           type: 'post',
+                           url: "/writeRas",
+                           data: {fileName: $('#selectFile1').val()},
+                           success: function(data){
+                                if(data.isSuccess == true){
+                                  var rasName = $('#selectFile1').val()+".ras";
+                                  $('#rasDownload').append('<div><a href="/downloadRas?path=/public/files/writeRasfiles/&output='+rasName+'"'+'>开始下载</a></div>');
+                                }else{
+                                  $('#rasDownload').append('<div class="alert alert-warning"> <strong>重写文件失败!</strong></div>');
+                                }
+                           }
+
+                 });
+             }
+
+
+
+            function deleteHDFSfile(){
+                 $.ajax({
+                          type: 'post',
+                          url: "/deleteHDFSfile",
+                          data: {selectFile: $("#selectFile").val()},
+                          success: function(data){
+                               if(data.success){
+                                    $('#startDownload').append('<div class="alert alert-success" id="deleteAlert"> <strong>删除HDFS文件成功!</strong></div>');
+                                    initMultiSelect();
+                               }else{
+                                    $('#startDownload').append('<div class="alert alert-success"> <strong>'+data.reason+'</strong></div>');
+                               }
+                          }
+                     });
+
+            }
+
+         </script>
+         
+
+
+
+

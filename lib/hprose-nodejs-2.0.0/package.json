@@ -1,0 +1,67 @@
+{
+  "name": "hprose",
+  "version": "2.0.0",
+  "homepage": "https://github.com/hprose/hprose-nodejs",
+  "description": "hprose for node.js",
+  "keywords": [
+    "hprose",
+    "rpc",
+    "webservice",
+    "websocket",
+    "http",
+    "ajax",
+    "json",
+    "jsonrpc",
+    "cross-language",
+    "cross-platform",
+    "cross-domain",
+    "html5",
+    "serialize",
+    "serialization",
+    "protocol",
+    "web",
+    "service",
+    "framework",
+    "library",
+    "game",
+    "communication",
+    "middleware",
+    "webapi",
+    "async",
+    "batch",
+    "multicall",
+    "future",
+    "promise",
+    "comet",
+    "push",
+    "pub-sub",
+    "publish",
+    "subscribe",
+    "idempotent",
+    "oneway",
+    "promises-aplus"
+  ],
+  "author": {
+    "name" : "Ma Bingyao",
+    "email" : "mabingyao@gmail.com",
+    "url": "http://hprose.com/"
+  },
+  "directories": {
+    "lib": "lib/"
+  },
+  "main": "lib/hprose.js",
+  "optionalDependencies": { "ws": "*" },
+  "devDependencies": {},
+  "engines": {
+    "node": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hprose/hprose-nodejs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hprose/hprose-nodejs/issues",
+    "email": "andot@hprose.com"
+  },
+  "license" : "MIT"
+}

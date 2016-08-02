@@ -1,0 +1,210 @@
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            实时计算
+                            <small>选择执行spark计算任务</small>
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-dashboard"></i>  <a href="home">回到首页</a>
+                            </li>
+                            <li class="active">
+                                <i class="fa fa-file"></i> spark任务
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+               <div class="col-lg-12">
+            <div class="page-header">
+                <h1>Spark计算任务</h1>
+            </div>
+
+            <div class="form-group">
+                   <label>请选择需要进行计算的HDFS上的文件</label>
+                   <select class="form-control" name="multiselect[]" id="selectFile" multiple="multiple">
+                        
+                   </select>
+                               
+            </div>
+             
+           <div class="form-group">
+                <label>请选择Spark算法</label>
+             <div class="row">
+               <div class="col-lg-4">
+                  <select class="form-control" id="sparkJar">                   
+                  </select>
+               </div>
+               <div class="col-lg-1">
+                  <button type="button" class="btn btn-sm btn-lg btn-info" onClick="getSparkdetailInfo()">详细信息</button>
+               </div>
+               <div class="col-lg-2">
+                  <button type="button" class="btn btn-sm btn-lg btn-danger" onClick="deleteSparkJar()">删除</button>
+               </div>
+               <div class="col-lg-4" id="deleteResult"></div>
+             </div>
+
+            <div class="form-group">
+                <br>
+                <label>请填写输出文件名称 <label>
+                <input class="form-control" type="text" id="outputName">
+            </div>
+           
+            <div id="startJob">
+              <br>
+              <button type="button" class="btn btn-sm btn-lg btn-primary" onClick="startJob()">开始执行</button>
+              <div><a href="http://218.199.34.66:8088" target="_blank">查看任务</a></div>
+            </div>
+          </div>
+
+          <!--模态框-->
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span
+                                class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">详细信息</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div>
+                            <h3>Spark算子详细信息</h3>
+                            <div class="table-responsive" id="id_table">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>         
+
+
+         <script type="text/javascript">
+              $(document).ready(function() {
+                  $('#selectFile').multiselect({
+                      ncludeSelectAllOption: true,
+                      enableFiltering: true,   
+                      maxHeight: '300',
+                      buttonWidth: '235'
+                  });
+
+                  initMultiSelect();
+                  initSparkJar();
+              });
+            
+             function initMultiSelect(){
+                 $.ajax({
+                            type: 'post',
+                            url: "/HDFSinit",
+                            success: function(data){
+                                if(data.success){
+                                    $("#selectFile").empty();
+                                    //$("#selectFile").append("<option value=''>请选择</option>");
+                                    // $("<option value=''>请选择</option>").appendTo("#selectFile");
+                                    var options = new Array();
+                                    for(var i=0; i<data.filesName.length; i++){
+                                            $("#selectFile").append("<option value="+data.filesName[i]+">"+data.filesName[i]+"</option>");
+                                            var option = {label:data.filesName[i], value:data.filesName[i]};
+                                            options.push(option);
+                                   }
+                                   //var options = [{label:'111',title:'11',value:'1'},{label:'222', title:'22', value:'2'}];
+                                   $('#selectFile').multiselect('dataprovider',options);
+                                }else{
+                                    $("#selectFile").append("<option value=''>数据加载失败</option>");
+                                }
+                            }
+                        });
+             }
+
+             function initSparkJar(){
+                 $.ajax({
+                            type: 'post',
+                            url: "/sparkInit",
+                            success: function(data){
+                                if(data.initSuccess){
+                                    $("#sparkJar").empty();
+                                    $("#sparkJar").append("<option value=''>请选择</option>");
+                                    for(var i=0; i<data.result.length; i++){
+                                            var param = data.result[i].sparkjarName+";"+data.result[i].sparkName+";"+data.result[i].mainClass+";"+data.result[i].path+";"+data.result[i].extralParams; 
+                                            console.log(param);
+                                            $("#sparkJar").append("<option value="+param+">"+data.result[i].sparkName+"</option>");
+                                    }
+                                    
+                                }else{
+                                    $("#sparkJar").append("<option value=''>数据加载失败</option>");
+                                }
+                            }
+                        });
+             }
+             
+            function deleteSparkJar(){
+                 $('#deleteResult').empty();
+               if($("#sparkJar").val()==''){
+                      $('#deleteResult').append('<div class="alert alert-warning" data-dismiss="alert" id="deleteAlert"> <strong>请选择待删除算子</strong></div>');
+               }else{
+                 $.ajax({
+                         type: 'post',
+                         url: "/deleteSparkJar",
+                         data:{sparkJarInfo: $("#sparkJar").val()},
+                         success: function(data){
+                               if(data.success){
+                                    $('#deleteResult').append('<div class="alert alert-success" data-dismiss="alert" id="deleteAlert"> <strong>删除mapreduce算子成功!</strong></div>');
+                                    initSparkJar();
+                               }else{
+                                    $('#deleteResult').append('<div class="alert alert-warning" data-dismiss="alert"> <strong>'+data.reason+'</strong></div>');
+                               }
+                         }
+
+                 })
+
+              }
+
+            }    
+
+              function getSparkdetailInfo(){
+                     var jarInfo = $('#sparkJar').val();
+                     var jarName = jarInfo.split(';')[0];
+                     var mpName = jarInfo.split(';')[1];
+                     var mainClass = jarInfo.split(';')[2];
+                     var path = jarInfo.split(';')[3];
+                     var extralParams = jarInfo.split(';')[4];
+                     $("#id_table").empty();
+                     var textHTML = "";
+                     textHTML+="<table class='table table-bordered table-hover table-striped'> <thead> <tr> <th>相关参数</th> <th>参数值</th> <th>相关参数</th> <th>参数值</th></tr></thead>";
+                     textHTML+="<tbody> <tr> <td>算子名称</td><td>"+mpName+"</td> <td>jar包名称</td> <td>"+jarName+"</td> </tr>";
+                     textHTML+="<tr> <td>主类名称</td><td>"+ mainClass  +"</td> <td>路径</td> <td>"+ path  +"</td>";
+                     textHTML+="<tr> <td>其它参数</td><td>"+ extralParams  +"</td>";       
+                     textHTML+="</tbody>";
+                     textHTML+="</table>";
+                     $("#id_table").append(textHTML);
+                     $("#myModal").modal('toggle');
+              }                  
+
+
+             function startJob(){
+                 //console.log($('#MapReduceJar').val());
+              if($('#sparkJar').val()=='' || $('#selectFile').val()==''){
+                    $('#startJob').append('<div class="alert alert-warning" data-dismiss="alert"> <strong>请选择处理文件与算子</strong></div>');
+              }else{
+                 $.ajax({
+                      type: 'post',
+                      url: "/startJobByQueue",
+                      data: {jarInfo: $('#sparkJar').val(), selectedValues: $('#selectFile').val(), outputName:$('#outputName').val(), jobType:'SparkTask'},
+                      success: function(data){
+                      if(data.startJobSuccess){
+                            $('#startJob').append('<div class="alert alert-info" data-dismiss="alert"> <strong>计算任务开始执行......</strong></div>');
+                            
+                      }else{
+                           $('#startJob').append('<div class="alert alert-warning" data-dismiss="alert"> <strong>启动任务失败!</strong></div>');
+                           $('#startJob').append('<p>'+ data.startResult +'</p>');
+                      }
+
+                }
+                 });
+
+              }
+             }
+        </script>

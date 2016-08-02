@@ -1,0 +1,72 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/root/node-v0.10.24/bin/node',
+1 verbose cli   '/root/node-v0.10.24/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'server.js' ]
+2 info using npm@1.3.21
+3 info using node@v0.10.24
+4 verbose readDependencies using package.json deps
+5 verbose cache add [ 'server.js', null ]
+6 verbose cache add name=undefined spec="server.js" args=["server.js",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'server.js',
+7 verbose parsed url   path: 'server.js',
+7 verbose parsed url   href: 'server.js' }
+8 silly lockFile dc60ea9e-server-js server.js
+9 verbose lock server.js /root/.npm/dc60ea9e-server-js.lock
+10 verbose chmod /root/tmp/npm-1289-9-YlO8XN/1451959278880-0.290808989899233/tmp.tgz 644
+11 verbose tar unpack /root/tmp/npm-1289-9-YlO8XN/1451959278880-0.290808989899233/tmp.tgz
+12 silly lockFile cbc42edd-278880-0-290808989899233-package tar:///root/tmp/npm-1289-9-YlO8XN/1451959278880-0.290808989899233/package
+13 verbose lock tar:///root/tmp/npm-1289-9-YlO8XN/1451959278880-0.290808989899233/package /root/.npm/cbc42edd-278880-0-290808989899233-package.lock
+14 silly lockFile 308e8374-278880-0-290808989899233-tmp-tgz tar:///root/tmp/npm-1289-9-YlO8XN/1451959278880-0.290808989899233/tmp.tgz
+15 verbose lock tar:///root/tmp/npm-1289-9-YlO8XN/1451959278880-0.290808989899233/tmp.tgz /root/.npm/308e8374-278880-0-290808989899233-tmp-tgz.lock
+16 silly gunzTarPerm modes [ '755', '644' ]
+17 error not a package /root/tmp/npm-1289-9-YlO8XN/1451959278880-0.290808989899233/tmp.tgz
+18 silly lockFile cbc42edd-278880-0-290808989899233-package tar:///root/tmp/npm-1289-9-YlO8XN/1451959278880-0.290808989899233/package
+19 silly lockFile cbc42edd-278880-0-290808989899233-package tar:///root/tmp/npm-1289-9-YlO8XN/1451959278880-0.290808989899233/package
+20 silly lockFile 308e8374-278880-0-290808989899233-tmp-tgz tar:///root/tmp/npm-1289-9-YlO8XN/1451959278880-0.290808989899233/tmp.tgz
+21 silly lockFile 308e8374-278880-0-290808989899233-tmp-tgz tar:///root/tmp/npm-1289-9-YlO8XN/1451959278880-0.290808989899233/tmp.tgz
+22 silly lockFile dc60ea9e-server-js server.js
+23 silly lockFile dc60ea9e-server-js server.js
+24 verbose addNamed [ 'server.js', '' ]
+25 verbose addNamed [ null, '*' ]
+26 silly lockFile a88d15b6-server-js server.js@
+27 verbose lock server.js@ /root/.npm/a88d15b6-server-js.lock
+28 silly addNameRange { name: 'server.js', range: '*', hasData: false }
+29 verbose url raw server.js
+30 verbose url resolving [ 'http://registry.cnpmjs.org/', './server.js' ]
+31 verbose url resolved http://registry.cnpmjs.org/server.js
+32 info trying registry request attempt 1 at 10:01:18
+33 http GET http://registry.cnpmjs.org/server.js
+34 http 404 http://registry.cnpmjs.org/server.js
+35 silly registry.get cb [ 404,
+35 silly registry.get   { server: 'nginx/1.4.6 (Ubuntu)',
+35 silly registry.get     date: 'Tue, 05 Jan 2016 02:01:19 GMT',
+35 silly registry.get     'content-type': 'application/json; charset=utf-8',
+35 silly registry.get     'content-length': '51',
+35 silly registry.get     connection: 'keep-alive',
+35 silly registry.get     'x-readtime': '8' } ]
+36 silly lockFile a88d15b6-server-js server.js@
+37 silly lockFile a88d15b6-server-js server.js@
+38 error 404 'server.js' is not in the npm registry.
+38 error 404 You should bug the author to publish it
+38 error 404
+38 error 404 Maybe try 'npm search server'
+38 error 404
+38 error 404 Note that you can also install from a
+38 error 404 tarball, folder, or http url, or git url.
+39 error System Linux 2.6.32-431.el6.x86_64
+40 error command "/root/node-v0.10.24/bin/node" "/root/node-v0.10.24/bin/npm" "install" "server.js"
+41 error cwd /opt/hprose-nodejs-2.0.0/example
+42 error node -v v0.10.24
+43 error npm -v 1.3.21
+44 error code E404
+45 verbose exit [ 1, true ]

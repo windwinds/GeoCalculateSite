@@ -1,0 +1,109 @@
+               <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            Spark服务配置
+                            <small>Spark计算任务</small>
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-dashboard"></i>  <a href="home">回到首页</a>
+                            </li>
+                            <li class="active">
+                                <i class="fa fa-file"></i> Spark服务配置
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="col-lg-12"> 
+                   <div class="page-header">
+                        <h2>配置Spark算子</h2>
+                   </div>
+                   <div>
+                        <label for="sparkName">请设置算子名称</label>
+                        <input class="form-control" id="sparkName">
+                    </div>
+                    <form enctype="multipart/form-data" method='post' role="form" id="formUploadJarFile">
+                    <div>
+                        <label for="sparkjarName">请上传Spark计算任务的jar包</label>
+                        <input type="file" id="sparkjarName" name="file" multiple='mutiple'>
+                    </div>
+                  <p>
+                     <br>                    
+                     <label for="params">请分别输入Spark主类名称、计算文件名称、额外参数（没有则不填,多个参数用,隔开）</label>
+                     <br>
+                     <div class="row">
+                        <div class="col-lg-3">
+                            <input class="form-control" type="text" id="mainClass" placeholder="Type something…">
+                        </div>
+                        <div class="col-lg-3">
+                            <input class="form-control" type="text" id="name" value=" ">
+                        </div>
+                        <div class="col-lg-3">
+                            <input class="form-control" type="text" id="extralParams" value=" ">
+                        </div>                   
+                     </div>
+                    
+                    <div id="uploadSparkjar">
+                        <br>
+                           <button type="button" class="btn btn-sm btn-lg btn-primary" onClick="uploadSparkjar()">上传jar包</button>
+                           <button type="button" class="btn btn-sm btn-success" onClick="startConfig()">确认配置</button>
+                        <br> 
+                    </div>
+                    <div id="configSparkjarDiv"></div>
+                  </p>
+                </form>
+               </div>
+
+               <script>
+                    function uploadSparkjar(){
+                      $('#configSparkjarDiv').empty();
+                      if($("#MPjarName").val()==''){
+                         $('#configSparkjarDiv').append('<div class="alert alert-warning"> <strong>请选择上传文件</strong></div>');
+                      }else{
+                        $('#configSparkjarDiv').append('<div class="alert alert-info"> <strong>正在上传，请稍后......</strong></div>');
+                        var formData = new FormData($("#formUploadJarFile")[0]);
+                        $.ajax({
+                            type: 'post',
+                            url: "/uploadSparkjar",
+                            data: formData,
+                            async: false,
+                            catch: false,
+                            contentType: false,
+                            processData: false,
+                            success: function(data){
+                                if(data.upSparkjarSuccess){
+                                    $('#configSparkjarDiv').append('<div class="alert alert-success"> <strong>文件上传成功!</strong></div>');
+                                }else{
+                                    $('#configSparkjarDiv').append('<div class="alert alert-warning"> <strong>文件上传失败!</strong></div>');
+                                }
+                            }
+                        });
+                      }
+                    }
+
+                    function startConfig(){
+                       // console.log($("#fieldFile").val()+" "+$("#splitName").val());
+                     $('#configSparkjarDiv').empty();
+                     if($("#sparkjarName").val()=='' || $("#sparkName").val()==''){
+                           $('#configSparkjarDiv').append('<div class="alert alert-warning"> <strong>请上传jar包、设置算子名称</strong></div>');
+                     }else{
+                        var params = trimstr($("#mainClass").val())+";"+trimstr($("#name").val())+";"+trimstr($("#extralParams").val());
+                        $.ajax({
+                             type: 'post',
+                             url: "/configSparkJar",
+                             data: {sparkName: trimstr($("#sparkName").val()), sparkjarName: $("#sparkjarName").val(), otherInfo: params},
+                             success: function(data){
+                                  if(data.configSuccess){
+                                      $('#configSparkjarDiv').append('<div class="alert alert-success"> <strong>配置成功!</strong></div>');
+                                  }else{
+
+                                  }
+                             }
+                        });
+                      }
+                    } 
+               </script>
+
+
+

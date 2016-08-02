@@ -1,0 +1,183 @@
+2016-03-29 15:39:09,348 [myid:] - INFO  [main:QuorumPeerConfig@103] - Reading configuration from: /usr/local/hadoop-2.6.0/zookeeper-3.4.8/bin/../conf/zoo.cfg
+2016-03-29 15:39:09,378 [myid:] - INFO  [main:QuorumPeer$QuorumServer@149] - Resolved hostname: dell2 to address: dell2/192.168.1.212
+2016-03-29 15:39:09,378 [myid:] - INFO  [main:QuorumPeer$QuorumServer@149] - Resolved hostname: dell1 to address: dell1/192.168.1.211
+2016-03-29 15:39:09,379 [myid:] - INFO  [main:QuorumPeer$QuorumServer@149] - Resolved hostname: master to address: master/192.168.1.202
+2016-03-29 15:39:09,379 [myid:] - INFO  [main:QuorumPeerConfig@331] - Defaulting to majority quorums
+2016-03-29 15:39:09,394 [myid:1] - INFO  [main:DatadirCleanupManager@78] - autopurge.snapRetainCount set to 3
+2016-03-29 15:39:09,394 [myid:1] - INFO  [main:DatadirCleanupManager@79] - autopurge.purgeInterval set to 0
+2016-03-29 15:39:09,394 [myid:1] - INFO  [main:DatadirCleanupManager@101] - Purge task is not scheduled.
+2016-03-29 15:39:09,403 [myid:1] - INFO  [main:QuorumPeerMain@127] - Starting quorum peer
+2016-03-29 15:39:09,460 [myid:1] - INFO  [main:NIOServerCnxnFactory@89] - binding to port 0.0.0.0/0.0.0.0:2181
+2016-03-29 15:39:09,481 [myid:1] - INFO  [main:QuorumPeer@1019] - tickTime set to 2000
+2016-03-29 15:39:09,481 [myid:1] - INFO  [main:QuorumPeer@1039] - minSessionTimeout set to -1
+2016-03-29 15:39:09,481 [myid:1] - INFO  [main:QuorumPeer@1050] - maxSessionTimeout set to -1
+2016-03-29 15:39:09,481 [myid:1] - INFO  [main:QuorumPeer@1065] - initLimit set to 10
+2016-03-29 15:39:09,537 [myid:1] - INFO  [main:FileSnap@83] - Reading snapshot /usr/local/hadoop-2.6.0/zookeeper-3.4.8/data/version-2/snapshot.30000042a
+2016-03-29 15:39:09,641 [myid:1] - INFO  [ListenerThread:QuorumCnxManager$Listener@534] - My election bind port: master/192.168.1.202:3888
+2016-03-29 15:39:09,651 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:QuorumPeer@774] - LOOKING
+2016-03-29 15:39:09,652 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:FastLeaderElection@818] - New election. My id =  1, proposed zxid=0x30000042a
+2016-03-29 15:39:09,654 [myid:1] - INFO  [WorkerReceiver[myid=1]:FastLeaderElection@600] - Notification: 1 (message format version), 1 (n.leader), 0x30000042a (n.zxid), 0x1 (n.round), LOOKING (n.state), 1 (n.sid), 0x3 (n.peerEpoch) LOOKING (my state)
+2016-03-29 15:39:09,677 [myid:1] - INFO  [WorkerSender[myid=1]:QuorumCnxManager@199] - Have smaller server identifier, so dropping the connection: (2, 1)
+2016-03-29 15:39:09,678 [myid:1] - INFO  [master/192.168.1.202:3888:QuorumCnxManager$Listener@541] - Received connection request /192.168.1.211:34613
+2016-03-29 15:39:09,678 [myid:1] - INFO  [WorkerSender[myid=1]:QuorumCnxManager@199] - Have smaller server identifier, so dropping the connection: (3, 1)
+2016-03-29 15:39:09,682 [myid:1] - INFO  [WorkerReceiver[myid=1]:FastLeaderElection@600] - Notification: 1 (message format version), 2 (n.leader), 0x200000478 (n.zxid), 0x1 (n.round), LEADING (n.state), 2 (n.sid), 0x3 (n.peerEpoch) LOOKING (my state)
+2016-03-29 15:39:09,683 [myid:1] - INFO  [WorkerReceiver[myid=1]:FastLeaderElection@600] - Notification: 1 (message format version), 2 (n.leader), 0x200000478 (n.zxid), 0x1 (n.round), LEADING (n.state), 2 (n.sid), 0x3 (n.peerEpoch) LOOKING (my state)
+2016-03-29 15:39:09,688 [myid:1] - INFO  [master/192.168.1.202:3888:QuorumCnxManager$Listener@541] - Received connection request /192.168.1.212:49641
+2016-03-29 15:39:09,690 [myid:1] - INFO  [WorkerReceiver[myid=1]:FastLeaderElection@600] - Notification: 1 (message format version), 2 (n.leader), 0x200000478 (n.zxid), 0x1 (n.round), FOLLOWING (n.state), 3 (n.sid), 0x3 (n.peerEpoch) LOOKING (my state)
+2016-03-29 15:39:09,690 [myid:1] - INFO  [WorkerReceiver[myid=1]:FastLeaderElection@600] - Notification: 1 (message format version), 2 (n.leader), 0x200000478 (n.zxid), 0x1 (n.round), FOLLOWING (n.state), 3 (n.sid), 0x3 (n.peerEpoch) LOOKING (my state)
+2016-03-29 15:39:09,691 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:QuorumPeer@844] - FOLLOWING
+2016-03-29 15:39:09,698 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Learner@86] - TCP NoDelay set to: true
+2016-03-29 15:39:09,717 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:zookeeper.version=3.4.8--1, built on 02/06/2016 03:18 GMT
+2016-03-29 15:39:09,717 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:host.name=master
+2016-03-29 15:39:09,717 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:java.version=1.7.0_71
+2016-03-29 15:39:09,717 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:java.vendor=Oracle Corporation
+2016-03-29 15:39:09,717 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:java.home=/usr/local/jdk1.7/jre
+2016-03-29 15:39:09,717 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:java.class.path=/usr/local/hadoop-2.6.0/zookeeper-3.4.8/bin/../build/classes:/usr/local/hadoop-2.6.0/zookeeper-3.4.8/bin/../build/lib/*.jar:/usr/local/hadoop-2.6.0/zookeeper-3.4.8/bin/../lib/slf4j-log4j12-1.6.1.jar:/usr/local/hadoop-2.6.0/zookeeper-3.4.8/bin/../lib/slf4j-api-1.6.1.jar:/usr/local/hadoop-2.6.0/zookeeper-3.4.8/bin/../lib/netty-3.7.0.Final.jar:/usr/local/hadoop-2.6.0/zookeeper-3.4.8/bin/../lib/log4j-1.2.16.jar:/usr/local/hadoop-2.6.0/zookeeper-3.4.8/bin/../lib/jline-0.9.94.jar:/usr/local/hadoop-2.6.0/zookeeper-3.4.8/bin/../zookeeper-3.4.8.jar:/usr/local/hadoop-2.6.0/zookeeper-3.4.8/bin/../src/java/lib/*.jar:/usr/local/hadoop-2.6.0/zookeeper-3.4.8/bin/../conf:.:/usr/local/jdk1.7/lib/dt.jar:/usr/local/jdk1.7/lib/tools.jar
+2016-03-29 15:39:09,717 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:java.library.path=/usr/local/protobuf-2.5.0:/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib
+2016-03-29 15:39:09,717 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:java.io.tmpdir=/tmp
+2016-03-29 15:39:09,717 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:java.compiler=<NA>
+2016-03-29 15:39:09,717 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:os.name=Linux
+2016-03-29 15:39:09,717 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:os.arch=amd64
+2016-03-29 15:39:09,718 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:os.version=2.6.32-431.el6.x86_64
+2016-03-29 15:39:09,718 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:user.name=root
+2016-03-29 15:39:09,718 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:user.home=/root
+2016-03-29 15:39:09,718 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Environment@100] - Server environment:user.dir=/home/lyc/software/nodeworkspace/hadoopSite
+2016-03-29 15:39:09,719 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:ZooKeeperServer@170] - Created server with tickTime 2000 minSessionTimeout 4000 maxSessionTimeout 40000 datadir /usr/local/hadoop-2.6.0/zookeeper-3.4.8/log/version-2 snapdir /usr/local/hadoop-2.6.0/zookeeper-3.4.8/data/version-2
+2016-03-29 15:39:09,720 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Follower@63] - FOLLOWING - LEADER ELECTION TOOK - 68
+2016-03-29 15:39:09,722 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:QuorumPeer$QuorumServer@149] - Resolved hostname: dell1 to address: dell1/192.168.1.211
+2016-03-29 15:39:09,728 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Learner@326] - Getting a diff from the leader 0x30000042e
+2016-03-29 15:39:09,733 [myid:1] - WARN  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Learner@377] - Got zxid 0x30000042b expected 0x1
+2016-03-29 15:39:09,753 [myid:1] - INFO  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:FileTxnSnapLog@240] - Snapshotting: 0x30000042e to /usr/local/hadoop-2.6.0/zookeeper-3.4.8/data/version-2/snapshot.30000042e
+2016-03-29 15:41:40,506 [myid:1] - WARN  [QuorumPeer[myid=1]/0:0:0:0:0:0:0:0:2181:Follower@118] - Got zxid 0x30000042f expected 0x1
+2016-03-29 15:41:40,506 [myid:1] - INFO  [SyncThread:1:FileTxnLog@199] - Creating new log file: log.30000042f
+2016-03-29 15:41:41,076 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@192] - Accepted socket connection from /192.168.1.212:55092
+2016-03-29 15:41:41,080 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@900] - Client attempting to establish new session at /192.168.1.212:55092
+2016-03-29 15:41:41,094 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@645] - Established session 0x153c14fdc250000 with negotiated timeout 40000 for client /192.168.1.212:55092
+2016-03-29 15:41:41,871 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@192] - Accepted socket connection from /192.168.1.209:52948
+2016-03-29 15:41:41,874 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@900] - Client attempting to establish new session at /192.168.1.209:52948
+2016-03-29 15:41:41,882 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@645] - Established session 0x153c14fdc250001 with negotiated timeout 40000 for client /192.168.1.209:52948
+2016-03-29 15:41:42,387 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@192] - Accepted socket connection from /192.168.1.204:60691
+2016-03-29 15:41:42,389 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@900] - Client attempting to establish new session at /192.168.1.204:60691
+2016-03-29 15:41:42,399 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@645] - Established session 0x153c14fdc250002 with negotiated timeout 40000 for client /192.168.1.204:60691
+2016-03-29 15:41:42,513 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@192] - Accepted socket connection from /192.168.1.209:52949
+2016-03-29 15:41:42,514 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@900] - Client attempting to establish new session at /192.168.1.209:52949
+2016-03-29 15:41:42,523 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@645] - Established session 0x153c14fdc250003 with negotiated timeout 40000 for client /192.168.1.209:52949
+2016-03-29 15:41:43,100 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@192] - Accepted socket connection from /192.168.1.203:51361
+2016-03-29 15:41:43,109 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@900] - Client attempting to establish new session at /192.168.1.203:51361
+2016-03-29 15:41:43,116 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@645] - Established session 0x153c14fdc250004 with negotiated timeout 40000 for client /192.168.1.203:51361
+2016-03-29 15:41:43,609 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@192] - Accepted socket connection from /192.168.1.202:60489
+2016-03-29 15:41:43,611 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@900] - Client attempting to establish new session at /192.168.1.202:60489
+2016-03-29 15:41:43,620 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@645] - Established session 0x153c14fdc250005 with negotiated timeout 40000 for client /192.168.1.202:60489
+2016-03-29 15:48:07,326 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@192] - Accepted socket connection from /192.168.1.202:60514
+2016-03-29 15:48:07,331 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@900] - Client attempting to establish new session at /192.168.1.202:60514
+2016-03-29 15:48:07,343 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@645] - Established session 0x153c14fdc250006 with negotiated timeout 40000 for client /192.168.1.202:60514
+2016-03-29 16:11:08,855 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1008] - Closed socket connection for client /192.168.1.202:60514 which had sessionid 0x153c14fdc250006
+2016-03-30 10:11:55,088 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@192] - Accepted socket connection from /192.168.1.202:35301
+2016-03-30 10:11:55,092 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@900] - Client attempting to establish new session at /192.168.1.202:35301
+2016-03-30 10:11:55,113 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@645] - Established session 0x153c14fdc250007 with negotiated timeout 40000 for client /192.168.1.202:35301
+2016-03-30 10:30:34,604 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@192] - Accepted socket connection from /192.168.1.202:35347
+2016-03-30 10:30:34,605 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@900] - Client attempting to establish new session at /192.168.1.202:35347
+2016-03-30 10:30:34,619 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@645] - Established session 0x153c14fdc250008 with negotiated timeout 40000 for client /192.168.1.202:35347
+2016-03-30 10:40:39,566 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1008] - Closed socket connection for client /192.168.1.202:35347 which had sessionid 0x153c14fdc250008
+2016-03-30 10:45:23,881 [myid:1] - INFO  [CommitProcessor:1:NIOServerCnxn@1008] - Closed socket connection for client /192.168.1.204:60691 which had sessionid 0x153c14fdc250002
+2016-03-30 11:07:11,287 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@192] - Accepted socket connection from /192.168.1.202:35530
+2016-03-30 11:07:11,287 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@900] - Client attempting to establish new session at /192.168.1.202:35530
+2016-03-30 11:07:11,300 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@645] - Established session 0x153c14fdc250009 with negotiated timeout 40000 for client /192.168.1.202:35530
+2016-03-30 11:07:47,274 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@192] - Accepted socket connection from /127.0.0.1:53179
+2016-03-30 11:07:47,286 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@900] - Client attempting to establish new session at /127.0.0.1:53179
+2016-03-30 11:07:47,299 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@645] - Established session 0x153c14fdc25000a with negotiated timeout 40000 for client /127.0.0.1:53179
+2016-03-30 11:08:05,183 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@357] - caught end of stream exception
+EndOfStreamException: Unable to read additional data from client sessionid 0x153c14fdc25000a, likely client has closed socket
+	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:230)
+	at org.apache.zookeeper.server.NIOServerCnxnFactory.run(NIOServerCnxnFactory.java:203)
+	at java.lang.Thread.run(Thread.java:745)
+2016-03-30 11:08:05,187 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1008] - Closed socket connection for client /127.0.0.1:53179 which had sessionid 0x153c14fdc25000a
+2016-03-30 11:19:49,589 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1008] - Closed socket connection for client /192.168.1.202:35530 which had sessionid 0x153c14fdc250009
+2016-03-30 11:37:58,222 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@192] - Accepted socket connection from /127.0.0.1:53448
+2016-03-30 11:37:58,226 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@900] - Client attempting to establish new session at /127.0.0.1:53448
+2016-03-30 11:37:58,236 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@645] - Established session 0x153c14fdc25000b with negotiated timeout 40000 for client /127.0.0.1:53448
+2016-03-30 11:38:10,150 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@357] - caught end of stream exception
+EndOfStreamException: Unable to read additional data from client sessionid 0x153c14fdc25000b, likely client has closed socket
+	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:230)
+	at org.apache.zookeeper.server.NIOServerCnxnFactory.run(NIOServerCnxnFactory.java:203)
+	at java.lang.Thread.run(Thread.java:745)
+2016-03-30 11:38:10,153 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1008] - Closed socket connection for client /127.0.0.1:53448 which had sessionid 0x153c14fdc25000b
+2016-03-30 11:51:49,137 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@192] - Accepted socket connection from /192.168.1.202:35872
+2016-03-30 11:51:49,138 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@900] - Client attempting to establish new session at /192.168.1.202:35872
+2016-03-30 11:51:49,148 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@645] - Established session 0x153c14fdc25000c with negotiated timeout 40000 for client /192.168.1.202:35872
+2016-03-30 12:11:39,624 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1008] - Closed socket connection for client /192.168.1.202:35872 which had sessionid 0x153c14fdc25000c
+2016-03-30 12:26:53,334 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@357] - caught end of stream exception
+EndOfStreamException: Unable to read additional data from client sessionid 0x153c14fdc250007, likely client has closed socket
+	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:230)
+	at org.apache.zookeeper.server.NIOServerCnxnFactory.run(NIOServerCnxnFactory.java:203)
+	at java.lang.Thread.run(Thread.java:745)
+2016-03-30 12:26:53,335 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1008] - Closed socket connection for client /192.168.1.202:35301 which had sessionid 0x153c14fdc250007
+2016-03-30 15:16:31,739 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@192] - Accepted socket connection from /192.168.1.204:42877
+2016-03-30 15:16:31,750 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@900] - Client attempting to establish new session at /192.168.1.204:42877
+2016-03-30 15:16:31,765 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@645] - Established session 0x153c14fdc25000d with negotiated timeout 40000 for client /192.168.1.204:42877
+2016-03-30 15:20:00,133 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@357] - caught end of stream exception
+EndOfStreamException: Unable to read additional data from client sessionid 0x153c14fdc25000d, likely client has closed socket
+	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:230)
+	at org.apache.zookeeper.server.NIOServerCnxnFactory.run(NIOServerCnxnFactory.java:203)
+	at java.lang.Thread.run(Thread.java:745)
+2016-03-30 15:20:00,134 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1008] - Closed socket connection for client /192.168.1.204:42877 which had sessionid 0x153c14fdc25000d
+2016-03-30 17:28:12,154 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@192] - Accepted socket connection from /192.168.1.202:36890
+2016-03-30 17:28:12,155 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@900] - Client attempting to establish new session at /192.168.1.202:36890
+2016-03-30 17:28:12,172 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@645] - Established session 0x153c14fdc25000e with negotiated timeout 40000 for client /192.168.1.202:36890
+2016-03-30 17:46:25,961 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@192] - Accepted socket connection from /127.0.0.1:54624
+2016-03-30 17:46:25,965 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@900] - Client attempting to establish new session at /127.0.0.1:54624
+2016-03-30 17:46:25,995 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@645] - Established session 0x153c14fdc25000f with negotiated timeout 40000 for client /127.0.0.1:54624
+2016-03-30 17:46:34,956 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@357] - caught end of stream exception
+EndOfStreamException: Unable to read additional data from client sessionid 0x153c14fdc25000f, likely client has closed socket
+	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:230)
+	at org.apache.zookeeper.server.NIOServerCnxnFactory.run(NIOServerCnxnFactory.java:203)
+	at java.lang.Thread.run(Thread.java:745)
+2016-03-30 17:46:34,957 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1008] - Closed socket connection for client /127.0.0.1:54624 which had sessionid 0x153c14fdc25000f
+2016-03-30 18:03:19,848 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1008] - Closed socket connection for client /192.168.1.202:36890 which had sessionid 0x153c14fdc25000e
+2016-04-01 11:23:23,230 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@192] - Accepted socket connection from /192.168.1.202:42747
+2016-04-01 11:23:23,231 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@900] - Client attempting to establish new session at /192.168.1.202:42747
+2016-04-01 11:23:23,245 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@645] - Established session 0x153c14fdc250010 with negotiated timeout 40000 for client /192.168.1.202:42747
+2016-04-01 11:33:31,325 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1008] - Closed socket connection for client /192.168.1.202:42747 which had sessionid 0x153c14fdc250010
+2016-04-01 11:45:46,254 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@192] - Accepted socket connection from /192.168.1.202:42838
+2016-04-01 11:45:46,255 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@900] - Client attempting to establish new session at /192.168.1.202:42838
+2016-04-01 11:45:46,270 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@645] - Established session 0x153c14fdc250011 with negotiated timeout 40000 for client /192.168.1.202:42838
+2016-04-01 11:59:21,346 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1008] - Closed socket connection for client /192.168.1.202:42838 which had sessionid 0x153c14fdc250011
+2016-04-01 14:58:55,336 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@192] - Accepted socket connection from /192.168.1.202:43334
+2016-04-01 14:58:55,336 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@900] - Client attempting to establish new session at /192.168.1.202:43334
+2016-04-01 14:58:55,349 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@645] - Established session 0x153c14fdc250012 with negotiated timeout 40000 for client /192.168.1.202:43334
+2016-04-01 14:59:42,977 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@192] - Accepted socket connection from /127.0.0.1:60982
+2016-04-01 14:59:43,001 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@900] - Client attempting to establish new session at /127.0.0.1:60982
+2016-04-01 14:59:43,015 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@645] - Established session 0x153c14fdc250013 with negotiated timeout 40000 for client /127.0.0.1:60982
+2016-04-01 15:08:43,612 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@357] - caught end of stream exception
+EndOfStreamException: Unable to read additional data from client sessionid 0x153c14fdc250013, likely client has closed socket
+	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:230)
+	at org.apache.zookeeper.server.NIOServerCnxnFactory.run(NIOServerCnxnFactory.java:203)
+	at java.lang.Thread.run(Thread.java:745)
+2016-04-01 15:08:43,656 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1008] - Closed socket connection for client /127.0.0.1:60982 which had sessionid 0x153c14fdc250013
+2016-04-01 15:09:01,479 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1008] - Closed socket connection for client /192.168.1.202:43334 which had sessionid 0x153c14fdc250012
+2016-04-01 15:20:42,577 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@192] - Accepted socket connection from /127.0.0.1:32851
+2016-04-01 15:20:42,595 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@900] - Client attempting to establish new session at /127.0.0.1:32851
+2016-04-01 15:20:42,609 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@645] - Established session 0x153c14fdc250014 with negotiated timeout 40000 for client /127.0.0.1:32851
+2016-04-01 15:29:17,960 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@357] - caught end of stream exception
+EndOfStreamException: Unable to read additional data from client sessionid 0x153c14fdc250014, likely client has closed socket
+	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:230)
+	at org.apache.zookeeper.server.NIOServerCnxnFactory.run(NIOServerCnxnFactory.java:203)
+	at java.lang.Thread.run(Thread.java:745)
+2016-04-01 15:29:18,046 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1008] - Closed socket connection for client /127.0.0.1:32851 which had sessionid 0x153c14fdc250014
+2016-04-01 15:38:26,328 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@192] - Accepted socket connection from /192.168.1.202:43497
+2016-04-01 15:38:26,328 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@900] - Client attempting to establish new session at /192.168.1.202:43497
+2016-04-01 15:38:26,344 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@645] - Established session 0x153c14fdc250015 with negotiated timeout 40000 for client /192.168.1.202:43497
+2016-04-01 15:39:34,351 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxnFactory@192] - Accepted socket connection from /127.0.0.1:32913
+2016-04-01 15:39:34,354 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:ZooKeeperServer@900] - Client attempting to establish new session at /127.0.0.1:32913
+2016-04-01 15:39:34,364 [myid:1] - INFO  [CommitProcessor:1:ZooKeeperServer@645] - Established session 0x153c14fdc250016 with negotiated timeout 40000 for client /127.0.0.1:32913
+2016-04-01 15:41:55,049 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1008] - Closed socket connection for client /192.168.1.212:55092 which had sessionid 0x153c14fdc250000
+2016-04-01 15:41:55,875 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1008] - Closed socket connection for client /192.168.1.209:52949 which had sessionid 0x153c14fdc250003
+2016-04-01 15:41:56,592 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1008] - Closed socket connection for client /192.168.1.203:51361 which had sessionid 0x153c14fdc250004
+2016-04-01 15:42:01,684 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1008] - Closed socket connection for client /192.168.1.209:52948 which had sessionid 0x153c14fdc250001
+2016-04-01 15:49:51,489 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1008] - Closed socket connection for client /192.168.1.202:43497 which had sessionid 0x153c14fdc250015
+2016-04-01 16:00:25,112 [myid:1] - WARN  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@357] - caught end of stream exception
+EndOfStreamException: Unable to read additional data from client sessionid 0x153c14fdc250016, likely client has closed socket
+	at org.apache.zookeeper.server.NIOServerCnxn.doIO(NIOServerCnxn.java:230)
+	at org.apache.zookeeper.server.NIOServerCnxnFactory.run(NIOServerCnxnFactory.java:203)
+	at java.lang.Thread.run(Thread.java:745)
+2016-04-01 16:00:25,113 [myid:1] - INFO  [NIOServerCxn.Factory:0.0.0.0/0.0.0.0:2181:NIOServerCnxn@1008] - Closed socket connection for client /127.0.0.1:32913 which had sessionid 0x153c14fdc250016

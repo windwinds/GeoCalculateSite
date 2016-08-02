@@ -1,0 +1,91 @@
+              <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="page-header">
+                            文件预处理服务配置
+                            <small>配置文件处理</small>
+                        </h1>
+                        <ol class="breadcrumb">
+                            <li>
+                                <i class="fa fa-dashboard"></i>  <a href="home">回到首页</a>
+                            </li>
+                            <li class="active">
+                                <i class="fa fa-file"></i> 文件处理配置
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+               
+                <div class="col-lg-12">
+                    <div class="page-header">
+                         <h2>配置文件处理方式</h2>
+                    </div>
+                    <div>
+                        <label for="splitName">请设置处理名称</label>
+                        <input class="form-control" id="splitName">
+                    </div>
+                    <form enctype="multipart/form-data" method='post' role="form" id="formUploadFile">
+                    <div>
+                        <label for="fieldFile">请上传文件处理的jar包</label>
+                        <input type="file" id="fieldFile" name="file" multiple='mutiple'>
+                    </div>
+                  <p>
+                    <div id="uploadfiles">
+                        <p>
+                           <button type="button" class="btn btn-sm btn-lg btn-primary" onClick="uploadFile()">上传jar包</button>
+                           <button type="button" class="btn btn-sm btn-success" onClick="start()">确认配置</button>
+                        </p>
+                    </div>
+                  </p>
+                  <div id="configFileDiv"></div>
+                </form>
+                </div>
+               
+                <script>
+                    function uploadFile(){
+                      $('#configFileDiv').empty();
+                      if($("#fieldFile").val()==''){
+                          $('#configFileDiv').append('<div class="alert alert-warning"> <strong>请选择上传文件</strong></div>');
+                      }else{
+                        $('#configFileDiv').append('<div class="alert alert-info"> <strong>正在上传，请稍后......</strong></div>');
+                        var formData = new FormData($("#formUploadFile")[0]);
+                        $.ajax({
+                            type: 'post',
+                            url: "/upSplitJar", 
+                            data: formData, 
+                            async: false,
+                            catch: false,
+                            contentType: false,
+                            processData: false,
+                            success: function(data){
+                                if(data.uploadSuccess){
+                                    $('#configFileDiv').append('<div class="alert alert-success"> <strong>文件上传成功!</strong></div>');
+                                }else{
+                                    $('#configFileDiv').append('<div class="alert alert-warning"> <strong>文件上传失败!</strong></div>');
+                                }
+                            }
+                        });
+                      }
+                    }
+
+                    function start(){
+                       $('#configFileDiv').empty();
+                       // console.log($("#fieldFile").val()+" "+$("#splitName").val());
+                        if($("#fieldFile").val()=='' || $("#fieldFile").val()==''){
+                              $('#configFileDiv').append('<div class="alert alert-warning"> <strong>请输入相关参数</strong></div>');
+                        }else{
+                          $.ajax({
+                             type: 'post',
+                             url: "/configSplitJar",
+                             data: {splitName: $("#splitName").val(), jarName: $("#fieldFile").val()},
+                             success: function(data){
+                                  if(data.success){
+                                      $('#configFileDiv').append('<div class="alert alert-success"> <strong>配置成功!</strong></div>'); 
+                                  }else{
+
+                                  }
+                             }
+                        });
+                      }
+                    }
+
+                  </script>
